@@ -1,0 +1,16 @@
+PODS:
+  - AcaiaSDK (1.5.0)
+
+DEPENDENCIES:
+  - AcaiaSDK (from `/Users/missybridgwater/UCLA/Y5/Q1/cs205/acaia_sdk_ios`)
+
+EXTERNAL SOURCES:
+  AcaiaSDK:
+    :path: "/Users/missybridgwater/UCLA/Y5/Q1/cs205/acaia_sdk_ios"
+
+SPEC CHECKSUMS:
+  AcaiaSDK: c0fa155abf7a6d6b6cd9ff6e5881c37c8637bba1
+
+PODFILE CHECKSUM: 53eaebc3eb74dc0ca9b05bcc7ea6a498e30c8a06
+
+COCOAPODS: 1.16.2
