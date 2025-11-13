@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1600"
+   LastUpgradeVersion = "2610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06035DEF51B2209909CC944E6E712775"
-               BuildableName = "Pods_Pillarity.framework"
-               BlueprintName = "Pods-Pillarity"
+               BlueprintIdentifier = "D53D325515AF5684DCBDAA9F20C40F08"
+               BuildableName = "AcaiaSDK"
+               BlueprintName = "AcaiaSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
