@@ -32,7 +32,9 @@ struct PillarityApp: App {
         // WindowGroup → defines your app’s main window (the screen users see).
         WindowGroup {
             // Inside it, SwiftUI loads your ContentView — that’s the root UI of the app.
-            ContentView()
+            NavigationStack {
+                ConnectScaleView()
+            }
         }
         .modelContainer(sharedModelContainer)
     }
