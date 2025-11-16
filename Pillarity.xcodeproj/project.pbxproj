@@ -466,7 +466,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pillarity/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "AcaiaEamples-swift";
+				INFOPLIST_KEY_CFBundleDisplayName = Pillarity;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Need Bluetooth access to communicate with Acaia scales";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -518,7 +518,7 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pillarity/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "AcaiaEamples-swift";
+				INFOPLIST_KEY_CFBundleDisplayName = Pillarity;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Need Bluetooth access to communicate with Acaia scales";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
