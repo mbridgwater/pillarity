@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 71;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -16,7 +16,6 @@
 			dependencies = (
 			);
 			name = AcaiaSDK;
-			productName = AcaiaSDK;
 		};
 /* End PBXAggregateTarget section */
 
@@ -37,24 +36,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F32D0381C8492B408B7D562D6AE27E9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		10F5687136B79AB6440E98B15F167E42 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		159257E57D36D796C5E103F9597E706C /* Pods-Pillarity-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Pillarity-umbrella.h"; sourceTree = "<group>"; };
+		2E0DEE18496FD9C892E3CBB1FB148CE5 /* AcaiaSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AcaiaSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3189A1665DE80AA9F64B0CB8EB8072AD /* Pods-Pillarity.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Pillarity.modulemap"; sourceTree = "<group>"; };
 		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		67D495D12B37C656379190298BB1A6F2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		9484C372CFFF54F7B12AE7F45A5C8FDE /* AcaiaSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AcaiaSDK.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A3E04427654B31523D4B7157BBA6D6E4 /* AcaiaSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AcaiaSDK.release.xcconfig; sourceTree = "<group>"; };
+		7F62CF18BA583C82B6846F6293C12676 /* AcaiaSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AcaiaSDK.release.xcconfig; sourceTree = "<group>"; };
+		92AC682A6DB9CE05CC523515EF48BB0D /* AcaiaSDK.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = AcaiaSDK.xcframework; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AB6062EEAF5C4BADA64D502464DBEBA8 /* Pods-Pillarity-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pillarity-Info.plist"; sourceTree = "<group>"; };
-		B28A505841E884AFF991975EA7BD0305 /* AcaiaSDK-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "AcaiaSDK-xcframeworks.sh"; sourceTree = "<group>"; };
 		B3D94A289CAD91692C23910AF8FD816A /* Pods-Pillarity-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Pillarity-acknowledgements.plist"; sourceTree = "<group>"; };
-		B95013CFAB3A5B3337D84C552E03FF13 /* AcaiaSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = AcaiaSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BA71F75DCF19C0931E3058D79AD662A8 /* Pods_Pillarity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pillarity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA71F75DCF19C0931E3058D79AD662A8 /* Pods-Pillarity */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Pillarity"; path = Pods_Pillarity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A78FE5461C911B3C19C02150F34DE8 /* Pods-Pillarity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pillarity.release.xcconfig"; sourceTree = "<group>"; };
+		C67B23EC032FCF49E67D7A730E00D067 /* AcaiaSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AcaiaSDK.debug.xcconfig; sourceTree = "<group>"; };
 		D622E1B6090F66F94C955284A1ABFDCF /* Pods-Pillarity-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Pillarity-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DC553E5F8F7D41763C26B17F5CCEC1D8 /* Pods-Pillarity-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Pillarity-dummy.m"; sourceTree = "<group>"; };
+		E09ABFAA8711D5AC3AE50A0BC33C56D2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		EC143DC9682BA7504A4D7B1CC87AA4D8 /* Pods-Pillarity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Pillarity.debug.xcconfig"; sourceTree = "<group>"; };
-		F78FD8E2FD4148AFC79732EEF707E8C8 /* AcaiaSDK.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = AcaiaSDK.xcframework; sourceTree = "<group>"; };
+		F17FF2FB981E3DED041BA64884159694 /* AcaiaSDK-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "AcaiaSDK-xcframeworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,23 +76,41 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		342D12A86CF523D0E04DC09111D1348F /* Support Files */ = {
+		239BBD0A2671020E7789AE601DDF41DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B28A505841E884AFF991975EA7BD0305 /* AcaiaSDK-xcframeworks.sh */,
-				9484C372CFFF54F7B12AE7F45A5C8FDE /* AcaiaSDK.debug.xcconfig */,
-				A3E04427654B31523D4B7157BBA6D6E4 /* AcaiaSDK.release.xcconfig */,
+				92AC682A6DB9CE05CC523515EF48BB0D /* AcaiaSDK.xcframework */,
 			);
-			name = "Support Files";
-			path = "../pillarity/Pods/Target Support Files/AcaiaSDK";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		26B5F18659679AED1B624B3E561CFC85 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				2E0DEE18496FD9C892E3CBB1FB148CE5 /* AcaiaSDK.podspec */,
+				E09ABFAA8711D5AC3AE50A0BC33C56D2 /* LICENSE */,
+				10F5687136B79AB6440E98B15F167E42 /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		446DD78304D70B6F253F791AC538BD03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA71F75DCF19C0931E3058D79AD662A8 /* Pods_Pillarity.framework */,
+				BA71F75DCF19C0931E3058D79AD662A8 /* Pods-Pillarity */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		44AF06FF61C5073C48E36E58E9E3C5FB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F17FF2FB981E3DED041BA64884159694 /* AcaiaSDK-xcframeworks.sh */,
+				C67B23EC032FCF49E67D7A730E00D067 /* AcaiaSDK.debug.xcconfig */,
+				7F62CF18BA583C82B6846F6293C12676 /* AcaiaSDK.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Pillarity/Pods/Target Support Files/AcaiaSDK";
 			sourceTree = "<group>";
 		};
 		66039A29DD5DB6781AFAD5919DED8C75 /* Pods-Pillarity */ = {
@@ -112,40 +129,30 @@
 			path = "Target Support Files/Pods-Pillarity";
 			sourceTree = "<group>";
 		};
-		749335779EADCCEC99963854246C9C6F /* Pod */ = {
+		86303B47E4484435EFB202598754EB8C /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B95013CFAB3A5B3337D84C552E03FF13 /* AcaiaSDK.podspec */,
-				67D495D12B37C656379190298BB1A6F2 /* LICENSE */,
-				0F32D0381C8492B408B7D562D6AE27E9 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		7E9DF45FE168CFA72D1395D13D6979AA /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B174E55375DB0FEEF172A871C4BB8FE8 /* AcaiaSDK */,
+				CE62C180AF09D3A09A10962375ECA5F4 /* AcaiaSDK */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		B174E55375DB0FEEF172A871C4BB8FE8 /* AcaiaSDK */ = {
+		CE62C180AF09D3A09A10962375ECA5F4 /* AcaiaSDK */ = {
 			isa = PBXGroup;
 			children = (
-				D7D3E61325E133CC6CD18400E70EC83E /* Frameworks */,
-				749335779EADCCEC99963854246C9C6F /* Pod */,
-				342D12A86CF523D0E04DC09111D1348F /* Support Files */,
+				239BBD0A2671020E7789AE601DDF41DB /* Frameworks */,
+				26B5F18659679AED1B624B3E561CFC85 /* Pod */,
+				44AF06FF61C5073C48E36E58E9E3C5FB /* Support Files */,
 			);
 			name = AcaiaSDK;
-			path = /Users/anmol/githubRepos/acaia_sdk_ios;
+			path = /Users/missybridgwater/UCLA/Y5/Q1/cs205/acaia_sdk_ios;
 			sourceTree = "<absolute>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				7E9DF45FE168CFA72D1395D13D6979AA /* Development Pods */,
+				86303B47E4484435EFB202598754EB8C /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				446DD78304D70B6F253F791AC538BD03 /* Products */,
 				1431CB5D991FD646571D37A15CB1C567 /* Targets Support Files */,
@@ -156,14 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				E4801F62A6B08CD9B5410329F1A18FDE /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D7D3E61325E133CC6CD18400E70EC83E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F78FD8E2FD4148AFC79732EEF707E8C8 /* AcaiaSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,7 +205,7 @@
 			);
 			name = "Pods-Pillarity";
 			productName = Pods_Pillarity;
-			productReference = BA71F75DCF19C0931E3058D79AD662A8 /* Pods_Pillarity.framework */;
+			productReference = BA71F75DCF19C0931E3058D79AD662A8 /* Pods-Pillarity */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -215,9 +214,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 1600;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 16.0";
@@ -228,6 +226,8 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 446DD78304D70B6F253F791AC538BD03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,13 +257,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/AcaiaSDK/AcaiaSDK-xcframeworks-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy XCFrameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/AcaiaSDK/AcaiaSDK-xcframeworks-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -297,14 +293,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC143DC9682BA7504A4D7B1CC87AA4D8 /* Pods-Pillarity.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = "Target Support Files/Pods-Pillarity/Pods-Pillarity-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -316,7 +315,6 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Pillarity/Pods-Pillarity.modulemap";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -332,7 +330,7 @@
 		};
 		50B22426546A990779EEBFB26CD73538 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3E04427654B31523D4B7157BBA6D6E4 /* AcaiaSDK.release.xcconfig */;
+			baseConfigurationReference = 7F62CF18BA583C82B6846F6293C12676 /* AcaiaSDK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -353,14 +351,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1A78FE5461C911B3C19C02150F34DE8 /* Pods-Pillarity.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = "Target Support Files/Pods-Pillarity/Pods-Pillarity-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -372,7 +373,6 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Pillarity/Pods-Pillarity.modulemap";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -422,7 +422,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -446,7 +445,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -489,7 +488,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -509,7 +507,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -519,7 +517,7 @@
 		};
 		BA95FB4A70625E49DA684698BD3A8AA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9484C372CFFF54F7B12AE7F45A5C8FDE /* AcaiaSDK.debug.xcconfig */;
+			baseConfigurationReference = C67B23EC032FCF49E67D7A730E00D067 /* AcaiaSDK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
