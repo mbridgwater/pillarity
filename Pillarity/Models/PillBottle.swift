@@ -8,20 +8,70 @@
 import Foundation
 import SwiftData
 
+//@Model
+//final class PillBottle {
+//    var type: Pill
+//    var owner: User?
+//    var pillCount: Int
+//    var timestamp: Date
+//
+//    init(type: Pill,
+//         pillCount: Int,
+//         timestamp: Date = .now,
+//         owner: User? = nil) {
+//        self.type = type
+//        self.pillCount = pillCount
+//        self.timestamp = timestamp
+//        self.owner = owner
+//    }
+//}
+
+enum DoseFrequency: String, CaseIterable, Identifiable, Codable {
+    case onceDaily = "Once daily"
+    case twiceDaily = "Twice daily"
+    case threeTimesDaily = "Thrice daily"
+
+    var id: String { rawValue }
+}
+
 @Model
 final class PillBottle {
-    var type: Pill
-    var owner: User?
-    var pillCount: Int
-    var timestamp: Date
+    // Relationships
+    var type: Pill          // which pill this bottle contains
+    var owner: User?        // which user owns it
 
-    init(type: Pill,
-         pillCount: Int,
-         timestamp: Date = .now,
-         owner: User? = nil) {
+    // Inventory
+    var pillCount: Int      // pills remaining in this bottle
+    var createdAt: Date
+
+    // Schedule / configuration
+    var dosageAmount: Int   // pills per dose (1, 2, 3…)
+    var frequency: DoseFrequency
+    var firstDoseTime: Date // time-of-day for first dose
+
+    // Adherence state
+    var lastTakenAt: Date?  // last time any dose was taken
+    var safetyLockEnabled: Bool
+
+    init(
+        type: Pill,
+        owner: User?,
+        pillCount: Int,
+        createdAt: Date = .now,
+        dosageAmount: Int,
+        frequency: DoseFrequency,
+        firstDoseTime: Date,
+        lastTakenAt: Date? = nil,
+        safetyLockEnabled: Bool = false
+    ) {
         self.type = type
-        self.pillCount = pillCount
-        self.timestamp = timestamp
         self.owner = owner
+        self.pillCount = pillCount
+        self.createdAt = createdAt
+        self.dosageAmount = dosageAmount
+        self.frequency = frequency
+        self.firstDoseTime = firstDoseTime
+        self.lastTakenAt = lastTakenAt
+        self.safetyLockEnabled = safetyLockEnabled
     }
 }

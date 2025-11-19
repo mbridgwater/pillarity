@@ -91,7 +91,7 @@ struct PillPlacementView: View {
                 .opacity(pillName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1.0)
             } else {
                 if let pill = calibratedPill {
-                    NavigationLink("Next") {
+                    NavigationLink("Next: Configure Bottle") {
                         AllPillsWeightView(pill: pill, onDone: onDone)
                     }
                     .buttonStyle(.borderedProminent)

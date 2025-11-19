@@ -11,18 +11,15 @@ import AcaiaSDK
 
 struct AllPillsWeightView: View {
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var session: AppSession
     
     let pill: Pill
     let onDone: () -> Void
 
     @State private var totalWeight: Float = 0
     @State private var calculatedCount: Int? = nil
-    @State private var userCount: Int = 0
-    @State private var userAdjusted = false
+    @State private var navigateToConfigure = false
 
-    @State private var statusMessage = "Place all pills of this type in the bottle."
+    private var numPills: Int { max(calculatedCount ?? 0, 1) }
 
     var body: some View {
         let singlePillWeight = pill.calibratedWeight
@@ -67,7 +64,6 @@ struct AllPillsWeightView: View {
             .background(Color(.systemGray6))
             .cornerRadius(16)
 
-            // Optional status / error text
             if singlePillWeight <= 0 {
                 Text("No calibrated weight found for this pill. Go back and calibrate a single pill first.")
                     .font(.footnote)
@@ -84,18 +80,16 @@ struct AllPillsWeightView: View {
                             .font(.headline)
                             .multilineTextAlignment(.center)
 
-                        // Yes / No confirmation
-                        HStack(spacing: 20) {
-                            Button("Yes, that's correct") {
-                                saveBottle(finalCount: count)
-                            }
-                            .buttonStyle(.borderedProminent)
-
-                            Button("No") {
-                                userAdjusted = true
-                                userCount = count
-                            }
-                            .buttonStyle(.bordered)
+                        Button {
+                            navigateToConfigure = true
+                        } label: {
+                            Text("Next: Configure Medication")
+                                .font(.headline)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 12)
+                                .background(Color(red: 0xED/255, green: 0x32/255, blue: 0x82/255))
+                                .foregroundColor(.white)
+                                .cornerRadius(12)
                         }
                     }
                     .padding(.top, 8)
@@ -105,35 +99,6 @@ struct AllPillsWeightView: View {
                         .foregroundColor(.secondary)
                         .padding(.top, 8)
                 }
-
-                // Manual adjustment section
-                if userAdjusted {
-                    VStack(spacing: 12) {
-                        Text("Adjust pill count")
-                            .font(.subheadline)
-
-                        HStack(spacing: 20) {
-                            Button("-") {
-                                if userCount > 0 { userCount -= 1 }
-                            }
-                            .font(.title2)
-
-                            Text("\(userCount) pills")
-                                .font(.title3)
-
-                            Button("+") {
-                                userCount += 1
-                            }
-                            .font(.title2)
-                        }
-
-                        Button("Save corrected count") {
-                            saveBottle(finalCount: userCount)
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                    .padding(.top, 6)
-                }
             }
 
             Spacer()
@@ -142,18 +107,23 @@ struct AllPillsWeightView: View {
         .onAppear {
             setupWeightObserver(singlePillWeight: singlePillWeight)
         }
+        .navigationDestination(isPresented: $navigateToConfigure) {
+            ConfigureMedicationView(
+                pill: pill,
+                initialPillCount: numPills,
+                onDone: onDone
+            )
+        }
     }
 
-    // MARK: - Weight updates
-
+    // Weight updates
     private func setupWeightObserver(singlePillWeight: Float) {
         guard singlePillWeight > 0 else {
-            statusMessage = "Cannot compute pill count without a calibrated pill weight."
+            print("Cannot compute pill count without a calibrated pill weight.")
             return
         }
 
         #if targetEnvironment(simulator)
-        // Simulator: fake some data
         let simulatedCount: Float = 10
         let simulatedTotal = simulatedCount * singlePillWeight
 
@@ -164,7 +134,6 @@ struct AllPillsWeightView: View {
         return
         #endif
 
-        // Real device
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: AcaiaScaleWeight),
             object: nil, queue: .main
@@ -181,26 +150,6 @@ struct AllPillsWeightView: View {
 
         let raw = totalWeight / singlePillWeight
         let count = max(Int(round(raw)), 0)
-
         calculatedCount = count
-
-        if !userAdjusted {
-            userCount = count
-        }
-    }
-
-    // MARK: - Save pill bottle
-
-    private func saveBottle(finalCount: Int) {
-        guard let user = session.currentUser else {
-            print("❌ No current user in session; cannot attach owner to bottle")
-            return
-        }
-        
-        let bottle = PillBottle(type: pill, pillCount: finalCount, owner: user)
-        modelContext.insert(bottle)
-
-        statusMessage = "Saved \(finalCount) pills for \(pill.name)."
-        onDone()
     }
 }

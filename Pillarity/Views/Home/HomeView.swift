@@ -5,7 +5,7 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     let currentUser: User
 
-    @Query(sort: \PillBottle.timestamp, order: .reverse) private var allBottles: [PillBottle]
+    @Query(sort: \PillBottle.createdAt, order: .reverse) private var allBottles: [PillBottle]
 
     var bottlesForUser: [PillBottle] {
         allBottles.filter { $0.owner == currentUser }

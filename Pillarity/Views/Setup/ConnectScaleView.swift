@@ -18,7 +18,7 @@ struct ConnectScaleView: View {
                     .font(.headline)
                     .foregroundColor(.primary)
 
-                NavigationLink("Next") {
+                NavigationLink("Next: Configure Pill") {
                     PillPlacementView(onDone: onDone)
                 }
                 .buttonStyle(.borderedProminent)
