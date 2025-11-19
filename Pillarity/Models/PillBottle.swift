@@ -8,24 +8,6 @@
 import Foundation
 import SwiftData
 
-//@Model
-//final class PillBottle {
-//    var type: Pill
-//    var owner: User?
-//    var pillCount: Int
-//    var timestamp: Date
-//
-//    init(type: Pill,
-//         pillCount: Int,
-//         timestamp: Date = .now,
-//         owner: User? = nil) {
-//        self.type = type
-//        self.pillCount = pillCount
-//        self.timestamp = timestamp
-//        self.owner = owner
-//    }
-//}
-
 enum DoseFrequency: String, CaseIterable, Identifiable, Codable {
     case onceDaily = "Once daily"
     case twiceDaily = "Twice daily"
@@ -41,7 +23,8 @@ final class PillBottle {
     var owner: User?        // which user owns it
 
     // Inventory
-    var pillCount: Int      // pills remaining in this bottle
+    var initialPillCount: Int      // total pills when bottle is created
+    var remainingPillCount: Int    // current pills left
     var createdAt: Date
 
     // Schedule / configuration
@@ -52,11 +35,13 @@ final class PillBottle {
     // Adherence state
     var lastTakenAt: Date?  // last time any dose was taken
     var safetyLockEnabled: Bool
+    // TO DO - add a next dose variable 
 
     init(
         type: Pill,
         owner: User?,
-        pillCount: Int,
+        initialPillCount: Int,
+        remainingPillCount: Int,
         createdAt: Date = .now,
         dosageAmount: Int,
         frequency: DoseFrequency,
@@ -66,7 +51,8 @@ final class PillBottle {
     ) {
         self.type = type
         self.owner = owner
-        self.pillCount = pillCount
+        self.initialPillCount = initialPillCount
+        self.remainingPillCount = remainingPillCount
         self.createdAt = createdAt
         self.dosageAmount = dosageAmount
         self.frequency = frequency
