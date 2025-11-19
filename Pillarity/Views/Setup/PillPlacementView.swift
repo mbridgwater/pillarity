@@ -14,65 +14,108 @@ struct PillPlacementView: View {
     let onDone: () -> Void
     
     @State private var latestWeight: Float = 0
-    @State private var statusMessage = "Please place the pill on the scale."
+    @State private var statusMessage = ""
     @State private var placed = false
     
-    @State private var pillName: String = "Pill Type"
+    @State private var pillName: String = ""
     @State private var calibratedPill: Pill? = nil
 
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 28) {
+            
+            VStack(spacing: 6) {
+                Text("Calibrate Pill Weight")
+                    .font(.title).bold()
+                    .foregroundColor(.primary)
+                Text("Let's measure how much each pill weighs.")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.top, 20)
+            
+            ZStack {
+                Circle()
+                    .fill(Color.accentColor)
+                    .opacity(0.3)
+                    .frame(width: 120, height: 120)
+                
+                Image(systemName: "scalemass")
+                    .font(.system(size: 44))
+                    .foregroundColor(Color.accentColor)
+            }
+            .padding(.top, 4)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text("Name this pill type")
+                Text("Calibration Instructions")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("1. Empty the bottle completely")
+                    Text("2. Place ONE pill in the bottle")
+                    Text("3. Click \"Start Calibration\"")
+                    Text("4. Wait for the weight to stabilize")
+                }
+                .foregroundColor(.primary)
+                .font(.subheadline)
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color(.systemGray6))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding(.horizontal)
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Name this pill")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
                 TextField("e.g. Vitamin D", text: $pillName)
                     .textFieldStyle(.roundedBorder)
-                    .padding(.bottom, 10)
+                    .disabled(placed)
+                    .opacity(placed ? 0.6 : 1.0)
             }
             .padding(.horizontal)
             
             Text(statusMessage)
-                .font(.headline)
+                .font(.title)
                 .multilineTextAlignment(.center)
 
             if !placed {
-                Button("Yes, I placed it") {
+                Button("Start Calibration") {
                     finishCalibration()
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(Color(red: 0xED/255, green: 0x32/255, blue: 0x82/255))
+                .disabled(pillName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .opacity(pillName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1.0)
             } else {
                 if let pill = calibratedPill {
-                    NavigationLink("Next: put all pills on the scale") {
+                    NavigationLink("Next: Configure Bottle") {
                         AllPillsWeightView(pill: pill, onDone: onDone)
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(Color(red: 0xED/255, green: 0x32/255, blue: 0x82/255))
                 } else {
-                    // Shouldn’t really happen, but nice fallback
                     Text("Error: pill calibration not saved.")
                         .foregroundStyle(.red)
                         .font(.footnote)
                 }
+                
             }
         }
         .onAppear { setupWeightObserver() }
-        .padding()
+        .padding(.bottom, 20)
     }
 
     private func setupWeightObserver() {
         #if targetEnvironment(simulator)
-        // Simulator: mock a single pill weight
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.latestWeight = 3.2
         }
         return
         #endif
 
-        // Real device
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: AcaiaScaleWeight),
             object: nil, queue: .main
@@ -87,16 +130,10 @@ struct PillPlacementView: View {
         placed = true
         let formatted = String(format: "%.1f g", latestWeight)
 
-        statusMessage = """
-        Successfully calibrated \(pillName)
-        as \(formatted)
-        """
+        statusMessage = "\(formatted)"
 
-        // Create and save this pill type
         let newPill = Pill(name: pillName, calibratedWeight: latestWeight)
         modelContext.insert(newPill)
-
-        // Keep a reference so we can pass it to the next screen
         calibratedPill = newPill
     }
 }

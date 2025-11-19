@@ -3,7 +3,7 @@ import AcaiaSDK
 
 struct ConnectScaleView: View {
     let onDone: () -> Void
-    @State private var scaleName = "Connecting to scale…"
+    @State private var scaleName = "Connecting to Pillarity bottle…"
     @State private var isTareComplete = false
 
     var body: some View {
@@ -14,25 +14,24 @@ struct ConnectScaleView: View {
                 .padding()
 
             if isTareComplete {
-                Text("Scale Ready")
+                Text("Bottle ready")
                     .font(.headline)
-                    .foregroundColor(.green)
+                    .foregroundColor(.primary)
 
-                NavigationLink("Set up new pill") {
+                NavigationLink("Next: Configure Pill") {
                     PillPlacementView(onDone: onDone)
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(Color(red: 0xED/255, green: 0x32/255, blue: 0x82/255))
 
             } else {
-                ProgressView("Preparing scale…")
+                ProgressView("Searching for nearby bottles…")
             }
         }
         .onAppear {
             #if targetEnvironment(simulator)
-            // Pretend we found and tared a scale after a short delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.scaleName = "Simulated Scale"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.scaleName = "Simulated Bottle"
                 self.isTareComplete = true
             }
             #else
@@ -57,7 +56,7 @@ struct ConnectScaleView: View {
             object: nil, queue: .main
         ) { _ in
             guard let scale = AcaiaManager.shared().connectedScale else { return }
-            scaleName = "Connected: \(scale.name)"
+            scaleName = "Pillarity Bottle Connected: \(scale.name)"
             scale.tare()                   // Zero scale once only
             isTareComplete = false         // Wait for tare to finish
         }
@@ -68,7 +67,8 @@ struct ConnectScaleView: View {
         ) { notification in
             guard let w = notification.userInfo?[AcaiaScaleUserInfoKeyWeight] as? Float else { return }
 
-            if abs(w) < 0.3 {              // Weight ~ zero = tare finished
+            if abs(w) < 0.3 {
+                // Weight ~ zero = tare finished
                 isTareComplete = true
             }
         }
