@@ -9,3 +9,8 @@ xcuserdata/
 
 # Derived data
 DerivedData/
+
+# Configurations
+Podfile
+Podfile.lock
+Pods/
