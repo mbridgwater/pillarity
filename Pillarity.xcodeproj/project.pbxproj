@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E8933C4B20DBB783D665B82 /* Pods_Pillarity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2620BBAD204A5FBD0E5CF61 /* Pods_Pillarity.framework */; };
+		B25CECBDC7706915FF7E4685 /* Pods_Pillarity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CB49202C648CBD76C79348 /* Pods_Pillarity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +28,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0DEAE56BD45BA90A39F6E2B0 /* Pods-Pillarity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillarity.release.xcconfig"; path = "Target Support Files/Pods-Pillarity/Pods-Pillarity.release.xcconfig"; sourceTree = "<group>"; };
-		1DABEC77897559BBA5ED9AD5 /* Pods-Pillarity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillarity.debug.xcconfig"; path = "Target Support Files/Pods-Pillarity/Pods-Pillarity.debug.xcconfig"; sourceTree = "<group>"; };
 		2D509C732EC40EC700ED20BB /* Pillarity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pillarity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D509C832EC40EC900ED20BB /* PillarityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PillarityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D509C8D2EC40EC900ED20BB /* PillarityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PillarityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2620BBAD204A5FBD0E5CF61 /* Pods_Pillarity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pillarity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A5987AA3BD342EC9EF1037 /* Pods-Pillarity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillarity.debug.xcconfig"; path = "Target Support Files/Pods-Pillarity/Pods-Pillarity.debug.xcconfig"; sourceTree = "<group>"; };
+		42CB49202C648CBD76C79348 /* Pods_Pillarity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pillarity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4CE493EFFD07EFEB9C2647C /* Pods-Pillarity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillarity.release.xcconfig"; path = "Target Support Files/Pods-Pillarity/Pods-Pillarity.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E8933C4B20DBB783D665B82 /* Pods_Pillarity.framework in Frameworks */,
+				B25CECBDC7706915FF7E4685 /* Pods_Pillarity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 				2D509C902EC40EC900ED20BB /* PillarityUITests */,
 				2D509C742EC40EC700ED20BB /* Products */,
 				F85931C66D85B0DC1868A4E7 /* Pods */,
-				CAE55FBF0D99C1CA7CA7774A /* Frameworks */,
+				FEFC55FFCB3277950B42133C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,21 +102,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CAE55FBF0D99C1CA7CA7774A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E2620BBAD204A5FBD0E5CF61 /* Pods_Pillarity.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F85931C66D85B0DC1868A4E7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1DABEC77897559BBA5ED9AD5 /* Pods-Pillarity.debug.xcconfig */,
-				0DEAE56BD45BA90A39F6E2B0 /* Pods-Pillarity.release.xcconfig */,
+				34A5987AA3BD342EC9EF1037 /* Pods-Pillarity.debug.xcconfig */,
+				C4CE493EFFD07EFEB9C2647C /* Pods-Pillarity.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FEFC55FFCB3277950B42133C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42CB49202C648CBD76C79348 /* Pods_Pillarity.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +126,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D509C972EC40EC900ED20BB /* Build configuration list for PBXNativeTarget "Pillarity" */;
 			buildPhases = (
-				62BC947BAB8BADCB9C355098 /* [CP] Check Pods Manifest.lock */,
+				8A8CB226B3224B25E98B2409 /* [CP] Check Pods Manifest.lock */,
 				2D509C6F2EC40EC700ED20BB /* Sources */,
 				2D509C702EC40EC700ED20BB /* Frameworks */,
 				2D509C712EC40EC700ED20BB /* Resources */,
@@ -193,7 +193,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					2D509C722EC40EC700ED20BB = {
 						CreatedOnToolsVersion = 16.4;
@@ -254,7 +254,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		62BC947BAB8BADCB9C355098 /* [CP] Check Pods Manifest.lock */ = {
+		8A8CB226B3224B25E98B2409 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,6 +350,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3MT8P47KH4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -373,6 +374,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -412,6 +414,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3MT8P47KH4;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -428,25 +431,29 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
 		2D509C982EC40EC900ED20BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DABEC77897559BBA5ED9AD5 /* Pods-Pillarity.debug.xcconfig */;
+			baseConfigurationReference = 34A5987AA3BD342EC9EF1037 /* Pods-Pillarity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pillarity/Pillarity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MT8P47KH4;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2UF24NRU75;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Pillarity needs Bluetooth access to stay connected to your scale.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Pillarity uses Bluetooth to connect to your Acaia scale.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -462,7 +469,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.missybridgwater.Pillarity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.missybridewater.Pillarity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -476,19 +483,22 @@
 		};
 		2D509C992EC40EC900ED20BB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DEAE56BD45BA90A39F6E2B0 /* Pods-Pillarity.release.xcconfig */;
+			baseConfigurationReference = C4CE493EFFD07EFEB9C2647C /* Pods-Pillarity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pillarity/Pillarity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3MT8P47KH4;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 2UF24NRU75;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Pillarity needs Bluetooth access to stay connected to your scale.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Pillarity uses Bluetooth to connect to your Acaia scale.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -504,7 +514,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.missybridgwater.Pillarity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.missybridewater.Pillarity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -522,6 +532,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3MT8P47KH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
@@ -545,6 +556,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3MT8P47KH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
@@ -567,6 +579,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3MT8P47KH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
@@ -589,6 +602,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3MT8P47KH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;

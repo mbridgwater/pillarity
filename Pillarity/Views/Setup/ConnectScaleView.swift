@@ -2,6 +2,7 @@ import SwiftUI
 import AcaiaSDK
 
 struct ConnectScaleView: View {
+    let onDone: () -> Void
     @State private var scaleName = "Connecting to scale…"
     @State private var isTareComplete = false
 
@@ -18,17 +19,26 @@ struct ConnectScaleView: View {
                     .foregroundColor(.green)
 
                 NavigationLink("Set up new pill") {
-                    PillPlacementView()
+                    PillPlacementView(onDone: onDone)
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(Color(red: 0xED/255, green: 0x32/255, blue: 0x82/255))
 
             } else {
                 ProgressView("Preparing scale…")
             }
         }
         .onAppear {
+            #if targetEnvironment(simulator)
+            // Pretend we found and tared a scale after a short delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.scaleName = "Simulated Scale"
+                self.isTareComplete = true
+            }
+            #else
             setupObservers()
             AcaiaManager.shared().startScan(1.0)
+            #endif
         }
     }
 
