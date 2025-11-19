@@ -10,13 +10,18 @@ import SwiftData
 
 @Model
 final class PillBottle {
-    @Relationship var type: Pill
+    var type: Pill
+    var owner: User?
     var pillCount: Int
     var timestamp: Date
 
-    init(type: Pill, pillCount: Int, timestamp: Date = .now) {
+    init(type: Pill,
+         pillCount: Int,
+         timestamp: Date = .now,
+         owner: User? = nil) {
         self.type = type
         self.pillCount = pillCount
         self.timestamp = timestamp
+        self.owner = owner
     }
 }

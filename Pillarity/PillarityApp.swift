@@ -5,12 +5,11 @@ import SwiftData
 struct PillarityApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
             Pill.self,
             PillBottle.self,
+            User.self
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema,
-                                                    isStoredInMemoryOnly: false)
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
@@ -18,12 +17,15 @@ struct PillarityApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    // Logged-in user session
+    @StateObject private var session = AppSession()
 
     var body: some Scene {
         WindowGroup {
-            HomeView()   // ← start on the medications list
-                .tint(Color(red: 0xED/255, green: 0x32/255, blue: 0x82/255))
+            RootView()
+                .modelContainer(sharedModelContainer)
+                .environmentObject(session)
         }
-        .modelContainer(sharedModelContainer)
     }
 }
