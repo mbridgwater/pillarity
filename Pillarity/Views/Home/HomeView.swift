@@ -21,19 +21,8 @@ struct HomeView: View {
 
                     // Top dashboard cards (fake data for now)
                     HStack(spacing: 16) {
-                        DashboardCard(
-                            title: "Doses Today",
-                            value: "3/4",
-                            subtitle: "1 remaining",
-                            icon: "pills"
-                        )
-
-                        DashboardCard(
-                            title: "Next Dose",
-                            value: "8:00 PM",
-                            subtitle: "in 2 hours",
-                            icon: "clock"
-                        )
+                        DashboardCard.dosesTodayCard(for: bottlesForUser)
+                        DashboardCard.nextDoseCard(for: bottlesForUser)
                     }
                     .padding(.horizontal)
 
