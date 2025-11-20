@@ -51,10 +51,11 @@ struct PillPlacementView: View {
                     .foregroundColor(.primary)
 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("1. Empty the bottle completely")
-                    Text("2. Place ONE pill in the bottle")
+                    Text("1. Place ONE pill in the bottle")
+                    Text("2. Name the pill (e.g. Vitamin D)")
                     Text("3. Click \"Start Calibration\"")
                     Text("4. Wait for the weight to stabilize")
+                    Text("5. Click \"Next: Configure Bottle\"")
                 }
                 .foregroundColor(.primary)
                 .font(.subheadline)
@@ -105,7 +106,7 @@ struct PillPlacementView: View {
             }
         }
         .onAppear { setupWeightObserver() }
-        .padding(.bottom, 20)
+        .padding(.bottom, 75)
     }
 
     private func setupWeightObserver() {

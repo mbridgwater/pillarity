@@ -194,8 +194,8 @@ struct ConfigureMedicationView: View {
                 .font(.subheadline)
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color(.systemGreen).opacity(0.12))
-                .foregroundColor(Color(.systemGreen))
+                .background(Color("AccentColor").opacity(0.12))
+                .foregroundColor(Color(.black))
                 .cornerRadius(12)
                 
                 if let error = saveError {
