@@ -10,7 +10,7 @@ import SwiftData
 
 struct PillBottleCard: View {
     @Bindable var bottle: PillBottle
-    @State private var showingEdit = false
+    @State private var isEditing = false
     
     private var pillsPerDoseText: String {
         let n = bottle.dosageAmount
@@ -19,19 +19,6 @@ struct PillBottleCard: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            
-            //            // Top row: name + status badges
-            //            HStack(alignment: .top) {
-            //                VStack(alignment: .leading, spacing: 4) {
-            //                    Text(bottle.type.name)
-            //                        .font(.headline)
-            //                    Text(pillsPerDoseText)
-            //                        .font(.subheadline)
-            //                        .foregroundColor(.secondary)
-            //                }
-            //                Spacer()
-            //                PillStatusBadgesRow(bottle: bottle)
-            //            }
             
             // Top row: name + status badges + Edit
             HStack(alignment: .top) {
@@ -49,7 +36,7 @@ struct PillBottleCard: View {
                     PillStatusBadgesRow(bottle: bottle)
                     
                     Button {
-                        showingEdit = true
+                        isEditing = true
                     } label: {
                         HStack(spacing: 4) {
                             Image(systemName: "pencil")
@@ -99,12 +86,14 @@ struct PillBottleCard: View {
                 .stroke(Color(.systemGray4), lineWidth: 0.5)
         )
         .shadow(color: Color.black.opacity(0.04), radius: 4, x: 0, y: 2)
-        .sheet(isPresented: $showingEdit) {
+        .sheet(isPresented: $isEditing) {
             NavigationStack {
                 ConfigureMedicationView(bottle: bottle) {
-                    showingEdit = false
+                    isEditing = false
                 }
             }
+            .presentationDetents([.fraction(0.7)])
+            .presentationDragIndicator(.visible)
         }
     }
 }

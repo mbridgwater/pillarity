@@ -25,6 +25,9 @@ struct ConfigureMedicationView: View {
     @State private var doseTime: Date = ConfigureMedicationView.defaultDoseTime()
     @State private var pillCount: Int
     @State private var saveError: String?
+    private var isEditingExisting: Bool {
+        bottleToEdit != nil
+    }
     
     // new bottle flow
     init(pill: Pill, initialPillCount: Int, onDone: @escaping () -> Void) {
@@ -168,11 +171,13 @@ struct ConfigureMedicationView: View {
                                 Text("\(pillCount)")
                                     .font(.body)
                             }
+                            .disabled(isEditingExisting)
                         }
                         .padding(12)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(Color(.systemGray6))
                         .cornerRadius(10)
+                        .opacity(isEditingExisting ? 0.5 : 1.0)
                     }
                 }
                 
@@ -243,8 +248,8 @@ struct ConfigureMedicationView: View {
         
         if let bottle = bottleToEdit {
             // edit existing bottle
-            bottle.initialPillCount  = pillCount
-            bottle.remainingPillCount = min(bottle.remainingPillCount, pillCount)
+//            bottle.initialPillCount  = pillCount
+//            bottle.remainingPillCount = min(bottle.remainingPillCount, pillCount)
             bottle.dosageAmount      = dosageAmount
             bottle.frequency         = frequency
             bottle.firstDoseTime     = doseTime

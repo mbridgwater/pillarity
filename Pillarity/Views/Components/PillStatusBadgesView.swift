@@ -8,18 +8,18 @@
 import SwiftUI
 import SwiftData
 
-extension PillBottle {
-    // TO DO: reflect medicine removals as taken - factor in dose and frequency. update lastTakenAt when med is taken.
-    var hasTakenToday: Bool {
-        guard let lastTakenAt else { return false }
-        return Calendar.current.isDateInToday(lastTakenAt)
-    }
-
-    var isLowStock: Bool {
-        // threshold is arbitrary; tweak later
-        remainingPillCount <= max(dosageAmount * 3, 5)
-    }
-}
+//extension PillBottle {
+//    // TO DO: reflect medicine removals as taken - factor in dose and frequency. update lastTakenAt when med is taken.
+//    var hasTakenToday: Bool {
+//        guard let lastTakenAt else { return false }
+//        return Calendar.current.isDateInToday(lastTakenAt)
+//    }
+//
+//    var isLowStock: Bool {
+//        // threshold is arbitrary; tweak later
+//        remainingPillCount <= max(dosageAmount * 3, 5)
+//    }
+//}
 
 struct IntakeStatusBadge: View {
     let takenToday: Bool
