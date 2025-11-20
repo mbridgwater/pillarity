@@ -92,7 +92,7 @@ struct PillBottleCard: View {
                     isEditing = false
                 }
             }
-            .presentationDetents([.fraction(0.7)])
+            .presentationDetents([.fraction(0.7), .large])
             .presentationDragIndicator(.visible)
         }
     }

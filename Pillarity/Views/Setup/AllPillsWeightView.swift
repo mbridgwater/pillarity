@@ -57,6 +57,7 @@ struct AllPillsWeightView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("1. Place ALL pills of this type in the bottle")
                     Text("2. Wait for the pill count to stabilize")
+                    Text("3. Click \"Next: Configure Medication\"")
                 }
                 .font(.subheadline)
             }
