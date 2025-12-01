@@ -45,10 +45,10 @@ final class DoseNotificationManager {
             var comps = Calendar.current.dateComponents([.hour, .minute], from: time)
             comps.timeZone = TimeZone.current
             
-            print("DEBUG: comps.hour =", comps.hour ?? -1)
-            print("DEBUG: comps.minute =", comps.minute ?? -1)
-            print("DEBUG: comps.timeZone =", comps.timeZone ?? .current)
-            print("DEBUG: scheduling notification id =", "\(bottle.identifier.uuidString)-\(idx)")
+            // print("DEBUG: comps.hour =", comps.hour ?? -1)
+            // print("DEBUG: comps.minute =", comps.minute ?? -1)
+            // print("DEBUG: comps.timeZone =", comps.timeZone ?? .current)
+            // print("DEBUG: scheduling notification id =", "\(bottle.identifier.uuidString)-\(idx)")
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: true)
 

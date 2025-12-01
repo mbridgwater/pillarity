@@ -43,7 +43,7 @@ struct DashboardCard: View {
 extension DashboardCard {
 
     static func dosesTodayCard(for bottles: [PillBottle]) -> DashboardCard {
-        bottles.forEach { $0.resetIfNewDay() }
+        bottles.forEach { $0.updateForNewDayIfNeeded() }
         let totalPills = bottles.reduce(0) { $0 + $1.totalDailyPills }
         let takenPills = bottles.reduce(0) { $0 + $1.pillsTakenToday }
         let remaining = max(totalPills - takenPills, 0)

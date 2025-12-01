@@ -78,7 +78,7 @@ struct TakeDoseView: View {
 
 
     private func confirmTaken() {
-        bottle.resetIfNewDay()
+        bottle.updateForNewDayIfNeeded()
 
         let removedWeight = abs(currentWeight)
         let pillWeight = bottle.type.calibratedWeight
