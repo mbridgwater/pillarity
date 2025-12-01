@@ -125,6 +125,22 @@ struct PillBottleCard: View {
                 .buttonStyle(.bordered)
                 .font(.caption)
                 .padding(.top, 6)
+                
+                Button("Simulate Taking 1 Pill") {
+                    // Ensure analytics are up to date
+                    bottle.updateForNewDayIfNeeded()
+
+                    // Simulate taking 1 pill
+                    bottle.pillsTakenToday += 1
+                    bottle.remainingPillCount = max(bottle.remainingPillCount - 1, 0)
+                    bottle.lastTakenAt = Date()
+
+                    try? modelContext.save()
+                }
+                .buttonStyle(.borderedProminent)
+                .font(.caption)
+                .padding(.top, 4)
+
             }
             .padding(.top, 8)
             #endif
