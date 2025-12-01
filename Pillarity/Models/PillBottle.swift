@@ -45,17 +45,12 @@ final class PillBottle {
     // NOTE: Assumption for MVP: All medications are started on the same day.
     // Analytics aggregates roll up across all PillBottle instances.
     // Daily analytics
-    @Attribute(.externalStorage)
     var dailyLast7: [Int] = []        // rolling 7 days (for charts)
-    @Attribute(.externalStorage)
     var dailyWeekBucket: [Int] = []   // resets every 7 days (for weekly aggregation)
     // Weekly analytics
-    @Attribute(.externalStorage)
     var weeklyLast4: [Int] = []       // rolling 4 weeks (for charts)
-    @Attribute(.externalStorage)
     var weeklyMonthBucket: [Int] = [] // resets every 4 weeks (for monthly aggregation)
     // Monthly analytics
-    @Attribute(.externalStorage)
     var monthlyLast12: [Int] = []     // rolling 12 months (for charts)
 
     init(
