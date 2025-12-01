@@ -43,25 +43,22 @@ struct DashboardCard: View {
 extension DashboardCard {
 
     static func dosesTodayCard(for bottles: [PillBottle]) -> DashboardCard {
-        let totalDoses = bottles.reduce(0) { $0 + $1.totalDailyDoses }
+        bottles.forEach { $0.resetIfNewDay() }
+        let totalPills = bottles.reduce(0) { $0 + $1.totalDailyPills }
+        let takenPills = bottles.reduce(0) { $0 + $1.pillsTakenToday }
+        let remaining = max(totalPills - takenPills, 0)
 
-        // TODO: replace with real count when you track doses
-        let takenDoses = 0
-        let remaining = max(totalDoses - takenDoses, 0)
+        let value: String = "\(takenPills)/\(totalPills)"
 
-        let value: String
         let subtitle: String
-
-        if totalDoses > 0 {
-            value = "\(takenDoses)/\(totalDoses)"
-            subtitle = "\(remaining) remaining"
+        if totalPills == 0 {
+            subtitle = "No pills scheduled today"
         } else {
-            value = "0/0"
-            subtitle = "No doses scheduled today"
+            subtitle = "\(remaining) remaining"
         }
 
         return DashboardCard(
-            title: "Doses Today",
+            title: "Pills Today",
             value: value,
             subtitle: subtitle,
             icon: "pills"

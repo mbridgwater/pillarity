@@ -1,8 +1,15 @@
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 @main
 struct PillarityApp: App {
+
+    init() {
+        UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
+        DoseNotificationManager.shared.requestNotifications()
+    }
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Pill.self,

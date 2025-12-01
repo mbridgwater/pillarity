@@ -19,6 +19,8 @@ struct MainShellView: View {
     @EnvironmentObject var session: AppSession
 
     @State private var selectedTab: MainTab = .home
+    @State private var showDoseSheet = false
+    @State private var bottleForDose: PillBottle?
 
     var body: some View {
         VStack(spacing: 0) {
@@ -58,5 +60,27 @@ struct MainShellView: View {
                 .background(.ultraThinMaterial)
         }
         .ignoresSafeArea(edges: [.bottom])
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("OpenDoseView"))) { notif in
+            if let id = notif.object as? String {
+                if let bottle = findBottle(by: id) {
+                    showDoseSheet = true
+                    bottleForDose = bottle
+                }
+            }
+        }
+        .sheet(item: $bottleForDose) { bottle in
+            TakeDoseView(bottle: bottle)
+        }
     }
+
+    private func findBottle(by id: String) -> PillBottle? {
+        guard let uuid = UUID(uuidString: id) else { return nil }
+        
+        return try? modelContext.fetch(
+            FetchDescriptor<PillBottle>(
+                predicate: #Predicate { $0.identifier == uuid }
+            )
+        ).first
+    }
+
 }

@@ -19,6 +19,7 @@ enum DoseFrequency: String, CaseIterable, Identifiable, Codable {
 @Model
 final class PillBottle {
     // Relationships
+    var identifier: UUID
     var type: Pill          // which pill this bottle contains
     var owner: User?        // which user owns it
 
@@ -33,8 +34,11 @@ final class PillBottle {
     var firstDoseTime: Date // time-of-day for first dose
 
     // Adherence state
-    var lastTakenAt: Date?  // last time any dose was taken
+    var lastTakenAt: Date?
     var safetyLockEnabled: Bool
+    var pillsTakenToday: Int = 0
+    var lastDoseTrackingDate: Date  // Allows for auto-reset at midnight
+
     // TO DO - add a next dose variable 
 
     init(
@@ -42,13 +46,14 @@ final class PillBottle {
         owner: User?,
         initialPillCount: Int,
         remainingPillCount: Int,
-        createdAt: Date = .now,
+        createdAt: Date,
         dosageAmount: Int,
         frequency: DoseFrequency,
         firstDoseTime: Date,
         lastTakenAt: Date? = nil,
         safetyLockEnabled: Bool = false
     ) {
+        self.identifier = UUID()
         self.type = type
         self.owner = owner
         self.initialPillCount = initialPillCount
@@ -59,5 +64,15 @@ final class PillBottle {
         self.firstDoseTime = firstDoseTime
         self.lastTakenAt = lastTakenAt
         self.safetyLockEnabled = safetyLockEnabled
+        self.lastDoseTrackingDate = Date()
+    }
+
+    // Resets the daily dose counter if a new day has started
+    // Call resetIfNewDay() anytime pillsTakenToday is accessed or modified
+    func resetIfNewDay() {
+        if !Calendar.current.isDateInToday(lastDoseTrackingDate) {
+            pillsTakenToday = 0
+            lastDoseTrackingDate = .now
+        }
     }
 }

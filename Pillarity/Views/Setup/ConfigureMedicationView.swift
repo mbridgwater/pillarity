@@ -253,6 +253,8 @@ struct ConfigureMedicationView: View {
             bottle.dosageAmount      = dosageAmount
             bottle.frequency         = frequency
             bottle.firstDoseTime     = doseTime
+
+            DoseNotificationManager.shared.scheduleDailyDoseNotifications(for: bottle)
         } else {
             // create new bottle
             let bottle = PillBottle(
@@ -260,6 +262,7 @@ struct ConfigureMedicationView: View {
                 owner: user,
                 initialPillCount: pillCount, // from Picker
                 remainingPillCount: pillCount,
+                createdAt: Date(),
                 dosageAmount: dosageAmount,    // from Picker
                 frequency: frequency,          // from Picker
                 firstDoseTime: doseTime,       // DatePicker
@@ -268,6 +271,8 @@ struct ConfigureMedicationView: View {
             )
             
             modelContext.insert(bottle)
+            DoseNotificationManager.shared.scheduleDailyDoseNotifications(for: bottle)
+
         }
             
             onDone()
