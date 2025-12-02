@@ -18,8 +18,8 @@ extension PillBottle {
         }
     }
 
-    /// Total doses per day (freq × dosageAmount).
-    var totalDailyDoses: Int {
+    /// Total pills per day (freq × dosageAmount).
+    var totalDailyPills: Int {
         dosageAmount * dosesPerDay
     }
 

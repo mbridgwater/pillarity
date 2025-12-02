@@ -89,6 +89,17 @@ struct SignInView: View {
                 .foregroundColor(Color(.systemGray))
             }
             .padding(.top, 4)
+            
+//            Button {
+//                signInDemoUser()
+//            } label: {
+//                Text("Sign in as Demo User")
+//                    .font(.subheadline)
+//                    .foregroundColor(.blue)
+//                    .underline()
+//            }
+//            .padding(.top, 4)
+
         }
     }
 
@@ -124,4 +135,18 @@ struct SignInView: View {
             }
         }
     }
+    
+//    private func signInDemoUser() {
+//        Task {
+//            let descriptor = FetchDescriptor<User>(
+//                predicate: #Predicate { $0.email == "demo@pillarity.app" }
+//            )
+//            if let demo = try? modelContext.fetch(descriptor).first {
+//                await MainActor.run {
+//                    session.currentUser = demo
+//                }
+//            }
+//        }
+//    }
+
 }
