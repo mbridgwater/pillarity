@@ -39,7 +39,7 @@ final class PillBottle {
     var pillsTakenToday: Int = 0
     var lastDoseTrackingDate: Date  // Allows for auto-reset at midnight
 
-    // TO DO - add a next dose variable 
+    // TO DO - add a next dose variable
 
     // Aggregates for analytics
     // NOTE: Assumption for MVP: All medications are started on the same day.

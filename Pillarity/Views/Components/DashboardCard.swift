@@ -35,7 +35,7 @@ struct DashboardCard: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity)
-        .background(Color(.systemGray6))
+        .background(Color(.systemBackground))
         .cornerRadius(18)
     }
 }

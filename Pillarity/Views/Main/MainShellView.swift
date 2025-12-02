@@ -44,7 +44,11 @@ struct MainShellView: View {
                 case .analytics:
                     AnalyticsView()
                 case .settings:
-                    SettingsView()
+                    if let user = session.currentUser {
+                        SettingsView(user: user)
+                    } else {
+                        Text("No user logged in")
+                    }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
