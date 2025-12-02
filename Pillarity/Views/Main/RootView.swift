@@ -14,6 +14,8 @@ struct RootView: View {
     var body: some View {
         if let _ = session.currentUser {
             MainShellView()
+                .environmentObject(session)
+                .preferredColorScheme(session.isDarkModeEnabled ? .dark : .light) // Default = light; toggle will flip to dark
         } else {
             AuthRootView()
         }

@@ -28,11 +28,10 @@ struct AuthRootView: View {
                 }
                 .padding(.top, 60)
 
-                Spacer(minLength: 0)
-
                 if showingSignUp {
                     SignUpView(showingSignUp: $showingSignUp)
                 } else {
+                    Spacer(minLength: 0)
                     SignInView(showingSignUp: $showingSignUp)
                 }
 

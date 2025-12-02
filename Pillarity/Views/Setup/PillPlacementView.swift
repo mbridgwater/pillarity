@@ -53,9 +53,9 @@ struct PillPlacementView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("1. Place ONE pill in the bottle")
                     Text("2. Name the pill (e.g. Vitamin D)")
-                    Text("3. Click \"Start Calibration\"")
+                    Text("3. Tap \"Start Calibration\"")
                     Text("4. Wait for the weight to stabilize")
-                    Text("5. Click \"Next: Configure Bottle\"")
+                    Text("5. Tap \"Next: Configure Bottle\"")
                 }
                 .foregroundColor(.primary)
                 .font(.subheadline)
