@@ -10,6 +10,7 @@ import SwiftData
 
 struct PillBottleCard: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var session: AppSession
     @Bindable var bottle: PillBottle
     @State private var isEditing = false
     
@@ -76,74 +77,11 @@ struct PillBottleCard: View {
             
             // Safety lock
             SafetyLockRow(bottle: bottle)
-
-            #if DEBUG
-            VStack(alignment: .leading, spacing: 6) {
-                Text("DEBUG Analytics")
-                    .font(.caption.bold())
-                    .foregroundStyle(.secondary)
-
-                Group {
-                    Text("Daily (last 7): \(bottle.dailyLast7)")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-
-                    Text("Daily WeekBucket: \(bottle.dailyWeekBucket)")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.top, 2)
-
-                Group {
-                    Text("Weekly (last 4): \(bottle.weeklyLast4)")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-
-                    Text("Weekly MonthBucket: \(bottle.weeklyMonthBucket)")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.top, 2)
-
-                Group {
-                    Text("Monthly (last 12): \(bottle.monthlyLast12)")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.top, 2)
-
-                // Simulate rollover (makes yesterday the last tracked date)
-                Button("Simulate Day Rollover") {
-                    // Pretend yesterday was the last update
-                    bottle.lastDoseTrackingDate = Calendar.current
-                        .date(byAdding: .day, value: -1, to: Date())!
-
-                    bottle.updateForNewDayIfNeeded()
-
-                    try? modelContext.save()
-                }
-                .buttonStyle(.bordered)
-                .font(.caption)
-                .padding(.top, 6)
-                
-                Button("Simulate Taking 1 Pill") {
-                    // Ensure analytics are up to date
-                    bottle.updateForNewDayIfNeeded()
-
-                    // Simulate taking 1 pill
-                    bottle.pillsTakenToday += 1
-                    bottle.remainingPillCount = max(bottle.remainingPillCount - 1, 0)
-                    bottle.lastTakenAt = Date()
-
-                    try? modelContext.save()
-                }
-                .buttonStyle(.borderedProminent)
-                .font(.caption)
-                .padding(.top, 4)
-
+            
+            // Debug info if enabled
+            if session.debugModeEnabled {
+                DebugAnalyticsSection(bottle: bottle)
             }
-            .padding(.top, 8)
-            #endif
 
         }
         .padding()

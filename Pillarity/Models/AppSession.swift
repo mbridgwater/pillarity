@@ -11,6 +11,7 @@ import SwiftData
 final class AppSession: ObservableObject {
     @Published var currentUser: User? = nil
     @Published var isDarkModeEnabled: Bool = false
+    @Published var debugModeEnabled: Bool = false
     func logout() {
         currentUser = nil
     }

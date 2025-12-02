@@ -237,6 +237,15 @@ struct SettingsView: View {
                     )
 
                     Divider().padding(.vertical, 6)
+                    
+                    SettingsToggleRow(
+                        title: "Debug Mode",
+                        subtitle: "Show advanced analytics & testing tools",
+                        isOn: $session.debugModeEnabled
+                    )
+
+                    Divider().padding(.vertical, 6)
+
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Language")
