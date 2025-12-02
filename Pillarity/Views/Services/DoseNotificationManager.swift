@@ -32,10 +32,14 @@ final class DoseNotificationManager {
         // Extract the hour/minute, create a daily calendar trigger, and
         // register a unique notification request for this pill bottle.
         for (idx, time) in times.enumerated() {
+            
+            let fmt = DateFormatter()
+            fmt.timeStyle = .short
+            let doseTimeString = fmt.string(from: time)
 
             let content = UNMutableNotificationContent()
-            content.title = "Time to take your pill"
-            content.body = "Your dose of \(bottle.type.name) is due."
+            content.title = "Time to take your \(bottle.type.name) pill!"
+            content.body = "\(bottle.dosageAmount) pill\(bottle.dosageAmount == 1 ? "" : "s") • \(doseTimeString)"
             content.sound = .default
             content.userInfo = [
                "bottleID": bottle.identifier.uuidString
