@@ -7,6 +7,11 @@ import SwiftUI
 import SwiftData
 import Charts
 
+let medColors: [Color] = [
+    .blue, .green, .orange, .purple, .pink, .red, .teal
+]
+
+
 // MARK: - Range Enum
 enum AnalyticsRange {
     case week
@@ -71,8 +76,12 @@ struct AnalyticsView: View {
                 // MARK: Metrics Card
                 metricsCard
                     .padding(.horizontal)
-
+                
+                MedicationBreakdownCard(breakdown: medicationBreakdown)
+                    .padding(.horizontal)
+                
                 Spacer(minLength: 40)
+
             }
         }
     }
@@ -197,6 +206,97 @@ struct ChartSectionView: View {
         }
     }
 }
+
+//
+// MARK: - Medication Breakdown Component
+//
+struct MedicationBreakdownCard: View {
+    let breakdown: [(name: String, percent: Double, color: Color)]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+
+            Text("Medication Breakdown")
+                .font(.headline)
+
+            Text("Adherence by medication")
+                .font(.caption)
+                .foregroundColor(.secondary)
+
+            ForEach(breakdown, id: \.name) { item in
+                VStack(alignment: .leading, spacing: 6) {
+
+                    HStack {
+                        Text(item.name)
+                            .font(.subheadline)
+
+                        Spacer()
+
+                        Text("\(Int(item.percent * 100))%")
+                            .font(.subheadline.bold())
+                    }
+
+                    ProgressView(value: item.percent)
+                        .progressViewStyle(.linear)
+                        .tint(item.color)
+                }
+            }
+        }
+        .padding(16)
+        .background(Color(.systemBackground))
+        .cornerRadius(16)
+        .shadow(color: .black.opacity(0.08), radius: 6, x: 0, y: 3)
+    }
+}
+
+
+
+
+extension AnalyticsView {
+
+    var medicationBreakdown: [(name: String, percent: Double, color: Color)] {
+
+        let rangeDays: Int = {
+            switch selectedRange {
+            case .week: return 7
+            case .month: return 28
+            case .year: return 28 * 12
+            }
+        }()
+
+        // Frequency helper
+        func expected(for bottle: PillBottle) -> Int {
+            let perDay = bottle.frequency == .onceDaily ? 1 :
+                         bottle.frequency == .twiceDaily ? 2 : 3
+            return perDay * bottle.dosageAmount * rangeDays
+        }
+
+        func taken(for bottle: PillBottle) -> Int {
+            switch selectedRange {
+            case .week:
+                return bottle.dailyLast7.reduce(0, +)
+            case .month:
+                return bottle.weeklyLast4.reduce(0, +)
+            case .year:
+                return bottle.monthlyLast12.reduce(0, +)
+            }
+        }
+
+        let sorted = bottlesForUser.sorted { $0.type.name < $1.type.name }
+
+        return sorted.enumerated().map { (idx, bottle) in
+            let name = bottle.type.name
+            let expectedAmount = expected(for: bottle)
+            let takenAmount = taken(for: bottle)
+            let percent = expectedAmount == 0 ? 0 : Double(takenAmount) / Double(expectedAmount)
+
+            return (name: name,
+                    percent: min(max(percent, 0), 2.0),  // cap but allow >100%
+                    color: medColors[idx % medColors.count])
+        }
+    }
+}
+
 
 //
 // MARK: - Labels
