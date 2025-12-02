@@ -82,7 +82,7 @@ struct TakeDoseView: View {
 
         let removedWeight = abs(currentWeight)
         let pillWeight = bottle.type.calibratedWeight
-        let pillsTaken = max(Int(floor(removedWeight / pillWeight)), 0)
+        let pillsTaken = max(Int(round(removedWeight / pillWeight)), 0)
 
 
         // update bottle
